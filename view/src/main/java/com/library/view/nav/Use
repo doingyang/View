@@ -1,0 +1,106 @@
+<com.youquanyun.syyx.widget.nav.AlphaTabsIndicator
+    android:id="@+id/ati"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_gravity="bottom"
+    android:orientation="horizontal">
+</com.youquanyun.syyx.widget.nav.AlphaTabsIndicator>
+
+alphaTabsIndicator = findViewById(R.id.ati);
+
+private void initNavigationMenu() {
+    String footerData = String.valueOf(SharedPreferencesUtils.get(this, "FOOTERDATA", ""));
+    if (DataUtil.isStringEmpty(footerData)) {
+        return;
+    }
+    HashMap hashMap = GsonUtil.parseJsonObject(footerData, HashMap.class);
+    if (null != hashMap) {
+        /*String num = (String) hashMap.get("num");*/
+        String bgColor = (String) hashMap.get("bgColor");
+        LinkedTreeMap items = (LinkedTreeMap) hashMap.get("items");
+        List<String> textList = new ArrayList<>();
+        for (Object key : items.keySet()) {
+            LinkedTreeMap itemData = (LinkedTreeMap) items.get(key);
+            String img = (String) itemData.get("img");
+            String activeImg = (String) itemData.get("activeImg");
+            String text = (String) itemData.get("text");
+            String color = (String) itemData.get("color");
+            String activeColor = (String) itemData.get("activeColor");
+
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1);
+            final AlphaTabView tabView = new AlphaTabView(this);
+            tabView.setLayoutParams(params);
+            tabView.setPadding(16, 16, 16, 16);
+            //文字
+            tabView.setText(text);
+            //字体颜色
+            if (!TextUtils.isEmpty(color)) {
+                tabView.setTextColorNormal(ColorUtil.formtColor(color));
+            }
+            if (!TextUtils.isEmpty(activeColor)) {
+                tabView.setTextColorSelected(ColorUtil.formtColor(activeColor));
+            }
+            //图标（先设置默认！！！）
+            tabView.setIconNormal(BitmapUtil.readBitMap(this, R.mipmap.logo));
+            tabView.setIconSelected(BitmapUtil.readBitMap(this, R.mipmap.logo));
+            if (!TextUtils.isEmpty(img)) {
+                Glide.with(this).load(img).into(new SimpleTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        tabView.setIconNormal(BitmapUtil.drawableToBitmap(resource));
+                    }
+                });
+            } else {
+                tabView.setIconNormal(BitmapUtil.readBitMap(this, R.mipmap.logo));
+            }
+            if (!TextUtils.isEmpty(activeImg)) {
+                Glide.with(this).load(activeImg).into(new SimpleTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        tabView.setIconSelected(BitmapUtil.drawableToBitmap(resource));
+                    }
+                });
+            } else {
+                tabView.setIconSelected(BitmapUtil.readBitMap(this, R.mipmap.logo));
+            }
+            alphaTabsIndicator.addView(tabView);
+            //记录Tab名称
+            textList.add(text);
+        }
+
+        /*MainTabAdapter mainAdapter = new MainTabAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(mainAdapter);
+        viewPager.setCanScroll(false);
+        viewPager.setOffscreenPageLimit(4);
+        alphaTabsIndicator.setViewPager(viewPager);*/
+
+        alphaTabsIndicator.setBackgroundColor(ColorUtil.formtColor(bgColor));
+        alphaTabsIndicator.setCheckLoginTabName(AppConstants.TAB_NAME_RIGHTS);
+        alphaTabsIndicator.setOnTabChangedListener(new OnTabChangedListner() {
+            @Override
+            public void onTabSelected(int tabNum) {
+                currentPosition = tabNum;
+                Fragment fragment = fragments.get(tabNum);
+                if (fragment != null) {
+                    switchFragment(R.id.fl_content, fragment);
+                }
+            }
+        });
+        //设置默认选中首页
+        alphaTabsIndicator.setTabCurrentItem(0);
+    }
+}
+
+/*private class MainTabAdapter extends FragmentPagerAdapter {
+    public MainTabAdapter(FragmentManager fm) {
+        super(fm);
+    }
+    @Override
+    public Fragment getItem(int position) {
+        return fragments.get(position);
+    }
+    @Override
+    public int getCount() {
+        return fragments.size();
+    }
+}*/

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="default_spacing">5dp</dimen>
+    <dimen name="default_normal_solid_radius">4dp</dimen>
+    <dimen name="default_normal_stroke_width">1dp</dimen>
+    <dimen name="default_selected_solid_radius">4dp</dimen>
+    <dimen name="default_selected_stroke_width">1dp</dimen>
+    <dimen name="default_line_width">12dp</dimen>
+    <dimen name="default_line_height">3dp</dimen>
+
+    <dimen name="wheel_item_width">160dp</dimen>
+    <dimen name="wheel_item_height">36dp</dimen>
+    <dimen name="wheel_divider_height">1dp</dimen>
+    <dimen name="wheel_text_size">18sp</dimen>
+
+</resources>
