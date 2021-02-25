@@ -10,33 +10,33 @@
         <attr name="textColorNormal" format="color" />
         <attr name="textColorSelected" format="color" />
         <attr name="badgeBackgroundColor" format="color" />
-        <attr name="paddingTextWithIcon" format="dimension"/>
+        <attr name="paddingTextWithIcon" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="WheelView">
-        <attr name="wheelCyclic" format="boolean"/>
-        <attr name="wheelEntries" format="reference"/>
-        <attr name="wheelItemCount" format="integer"/>
-        <attr name="wheelItemWidth" format="dimension"/>
-        <attr name="wheelItemHeight" format="dimension"/>
-        <attr name="wheelTextSize" format="dimension"/>
-        <attr name="wheelTextColor" format="color"/>
-        <attr name="wheelSelectedTextColor" format="color"/>
-        <attr name="wheelDividerColor" format="color"/>
-        <attr name="wheelHighlightColor" format="color"/>
+        <attr name="wheelCyclic" format="boolean" />
+        <attr name="wheelEntries" format="reference" />
+        <attr name="wheelItemCount" format="integer" />
+        <attr name="wheelItemWidth" format="dimension" />
+        <attr name="wheelItemHeight" format="dimension" />
+        <attr name="wheelTextSize" format="dimension" />
+        <attr name="wheelTextColor" format="color" />
+        <attr name="wheelSelectedTextColor" format="color" />
+        <attr name="wheelDividerColor" format="color" />
+        <attr name="wheelHighlightColor" format="color" />
     </declare-styleable>
 
     <declare-styleable name="Wheel3DView">
         <attr name="wheelToward" format="enum">
-            <enum name="none" value="0"/>
-            <enum name="left" value="-1"/>
-            <enum name="right" value="1"/>
+            <enum name="none" value="0" />
+            <enum name="left" value="-1" />
+            <enum name="right" value="1" />
         </attr>
     </declare-styleable>
 
     <declare-styleable name="LineDividerTextView">
-        <attr name="line_divider" format="reference"/>
-        <attr name="line_divider_height" format="dimension"/>
+        <attr name="line_divider" format="reference" />
+        <attr name="line_divider_height" format="dimension" />
     </declare-styleable>
 
     <attr name="dotsColor" format="color" />
@@ -79,6 +79,12 @@
         <attr name="dotsCornerRadius" />
         <attr name="dotsStrokeWidth" />
         <attr name="dotsStrokeColor" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="border_thickness" format="dimension" />
+        <attr name="border_inside_color" format="color" />
+        <attr name="border_outside_color" format="color" />
     </declare-styleable>
 
 </resources>

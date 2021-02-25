@@ -37,5 +37,7 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
 
     implementation project(':view')
+    implementation project(':widget')
+
     implementation 'com.scwang.wave:MultiWaveHeader:1.0.0-alpha-1'
 }
