@@ -40,4 +40,6 @@ dependencies {
     implementation project(':widget')
 
     implementation 'com.scwang.wave:MultiWaveHeader:1.0.0-alpha-1'
+    implementation 'com.github.Othershe:CombineBitmap:1.0.5'
+    implementation 'com.github.SheHuan:NiceImageView:1.0.5'
 }

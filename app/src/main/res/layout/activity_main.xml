@@ -7,11 +7,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <!--<com.scwang.wave.MultiWaveHeader
-        android:id="@+id/mwh"
-        android:layout_width="match_parent"
-        android:layout_height="200dp" />-->
-
     <com.scwang.wave.MultiWaveHeader
         android:id="@+id/mwh"
         android:layout_width="match_parent"
@@ -27,10 +22,13 @@
         app:mwhWaveHeight="50dp"
         app:mwhWaves="PairWave" />
 
-    <!--<com.scwang.wave.MultiWaveHeader
-        android:id="@+id/mwh"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:mwhWaves="70,25,1.4,1.4,-26100,5,1.4,1.2,15420,0,1.15,1,-10520,10,1.7,1.5,20220,0,1,1,-15" />-->
+    <com.shehuan.niv.NiceImageView
+        android:id="@+id/iv_combine"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center_horizontal"
+        app:border_color="#FF0000"
+        app:border_width="2dp"
+        app:is_circle="true" />
 
 </LinearLayout>
